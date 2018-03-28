@@ -32,14 +32,14 @@ Proxy server memiliki manfaat-manfaat berikut ini:
 Untuk praktikum jarkom kali ini, software proxy server yang digunakan adalah **SQUID**. UML yang digunakan sebagai proxy server adalah **PUCANG**.
 
 ### 2.1 Instalasi Squid
-Pada UML **PUCANG**, ketikkan:
+**STEP 1** - Pada UML **PUCANG**, ketikkan:
 
     apt-get install squid3
 
 ![Pucang1](images/1.png)
 
 
-Cek status squid3 dengan mengetikkan 
+**STEP 2** - Cek status squid3 dengan mengetikkan 
 
     service squid3 status
 
@@ -48,7 +48,7 @@ Cek status squid3 dengan mengetikkan
 Jika muncul status **ok** maka instalasi telah berhasil.
 
 ### 2.2 Konfigurasi Dasar Squid
-Backup terlebih dahulu file konfigurasi default yang disediakan squid. Ketikkan perintah berikut untuk melakukan backup: 
+**STEP 1** - Backup terlebih dahulu file konfigurasi default yang disediakan squid. Ketikkan perintah berikut untuk melakukan backup: 
 
     mv /etc/squid3/squid.conf /etc/squid3/squid.conf.bak
 
@@ -56,4 +56,18 @@ Backup terlebih dahulu file konfigurasi default yang disediakan squid. Ketikkan 
 
 Perintah di atas artinya mengubah ekstensi file **squid.conf** menjadi **squid.conf.bak** dan menyimpannya di directory yang sama (tidak pindah folder).
 
+**STEP 2** - Buat konfigurasi baru dengan mengetikkan:
+
+    nano /etc/squid3/squid.conf
+    
+![Pucang4](images/4.png)
+
+**STEP 3** - Kemudian, pada file config yang baru, ketikkan:
+
+    http_port 8080
+    visible_hostname pucang
+
+Konfigurasi di atas berarti:
+- Menggunakan port 8080
+- Nama yang akan terlihat pada status: pucang
 
