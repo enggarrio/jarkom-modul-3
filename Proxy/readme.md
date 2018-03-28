@@ -1,8 +1,9 @@
 # PROXY
 ## **SYARAT SEBELUM MASUK KE MATERI INTI**
-1. Buka **seluruh UML**
-2. Jalankan **iptables ...** di **ROUTER**
-3. Export proxy http, https, dan ftp di **seluruh UML**
+1. Buka **seluruh UML**.
+2. Jalankan **iptables ...** di **ROUTER**.
+3. Export proxy http, https, dan ftp di **seluruh UML**.
+4. Jalankan **apt-get update** di **seluruh UML**.
 
 # Proxy Server
 ## 1. Pengertian, Fungsi, dan Manfaat
@@ -31,3 +32,31 @@ Proxy server memiliki manfaat-manfaat berikut ini:
 Untuk praktikum jarkom kali ini, software proxy server yang digunakan adalah **SQUID**. UML yang digunakan sebagai proxy server adalah **PUCANG**.
 
 ### 2.1 Instalasi Squid
+Pada UML **PUCANG**, ketikkan:
+
+    apt-get install squid3
+
+![Pucang1](images/1.PNG)
+
+
+Cek status squid3 dengan mengetikkan 
+
+    service squid3 status
+
+![Pucang2](images/2.PNG)
+
+
+Jika muncul status **ok** maka instalasi telah berhasil.
+
+![Pucang3](images/3.PNG)
+
+### 2.2 Konfigurasi Dasar Squid
+Backup terlebih dahulu file konfigurasi default yang disediakan squid. Ketikkan perintah berikut untuk melakukan backup: 
+
+    mv /etc/squid3/squid.conf /etc/squid3/squid.conf.bak
+
+![Pucang4](images/4.PNG)
+
+Perintah di atas artinya mengubah ekstensi file **squid.conf** menjadi **squid.conf.bak** dan menyimpannya di directory yang sama (tidak pindah folder).
+
+
