@@ -67,7 +67,15 @@ Perintah di atas artinya mengubah ekstensi file **squid.conf** menjadi **squid.c
     http_port 8080
     visible_hostname pucang
 
+![Pucang5](images/5.png)
+
 Konfigurasi di atas berarti:
 - Menggunakan port 8080
 - Nama yang akan terlihat pada status: pucang
+
+**STEP 4** - Restart squid dengan cara mengetikkan perintah:
+
+    service squid3 restart
+
+![Pucang6](images/6.png)
 
