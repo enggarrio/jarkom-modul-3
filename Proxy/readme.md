@@ -79,3 +79,24 @@ Konfigurasi di atas berarti:
 
 ![Pucang6](images/6.png)
 
+**STEP 5** - Ubah pengaturan proxy browser. Gunakan **IP PUCANG** sebagai host, dan isikan port **8080**.
+
+**STEP 6** - Cobalah untuk mengakses web **its.ac.id** (usahakan menggunakan mode **incognito/private**). Seharusnya yang muncul adalah sebagai berikut.
+
+![Pucang7](images/7.png)
+
+**STEP 7** - Supaya bisa mengakses web **its.ac.id**, buka kembali file konfigurasi squid yang sudah dibuat tadi
+
+**STEP 8** - Tambahkan baris berikut.
+
+    http_access allow all
+
+![Pucang8](images/8.png)
+
+**STEP 9** - **Simpan** file konfigurasi tersebut, lalu **restart** squid.
+
+**STEP 10** - Refresh halaman web **its.ac.id**. Seharusnya halaman yang ditampilkan kembali normal.
+
+Keterangan:
+- **http_access allow all** perlu ditambahkan karena pengaturan default squid adalah **deny**
+
