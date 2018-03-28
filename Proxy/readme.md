@@ -1,5 +1,4 @@
-# Proxy
-
+# PROXY
 ## **SYARAT SEBELUM MASUK KE MATERI INTI**
 1. Buka **seluruh UML**
 2. Jalankan **iptables ...** di **ROUTER**
@@ -27,3 +26,8 @@ Proxy server memiliki manfaat-manfaat berikut ini:
 - Memblokir situs yang tidak diinginkan
 - Mengakses situs yang telah diblokir
 - Mengatur bandwith
+
+## 2. Implementasi
+Untuk praktikum jarkom kali ini, software proxy server yang digunakan adalah **SQUID**. UML yang digunakan sebagai proxy server adalah **PUCANG**.
+
+### 2.1 Instalasi Squid
