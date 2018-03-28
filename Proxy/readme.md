@@ -36,26 +36,23 @@ Pada UML **PUCANG**, ketikkan:
 
     apt-get install squid3
 
-![Pucang1](images/1.PNG)
+![Pucang1](images/1.png)
 
 
 Cek status squid3 dengan mengetikkan 
 
     service squid3 status
 
-![Pucang2](images/2.PNG)
-
+![Pucang2](images/2.png)
 
 Jika muncul status **ok** maka instalasi telah berhasil.
-
-![Pucang3](images/3.PNG)
 
 ### 2.2 Konfigurasi Dasar Squid
 Backup terlebih dahulu file konfigurasi default yang disediakan squid. Ketikkan perintah berikut untuk melakukan backup: 
 
     mv /etc/squid3/squid.conf /etc/squid3/squid.conf.bak
 
-![Pucang4](images/4.PNG)
+![Pucang3](images/3.png)
 
 Perintah di atas artinya mengubah ekstensi file **squid.conf** menjadi **squid.conf.bak** dan menyimpannya di directory yang sama (tidak pindah folder).
 
