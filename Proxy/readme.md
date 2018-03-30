@@ -106,17 +106,17 @@ Keterangan:
 
     htpasswd -c /etc/squid3/passwd asisten
     
-![](images/9.png)
+![Pucang9](images/9.png)
 
 Ketikkan password yang diinginkan. Jika sudah maka akan muncul notifikasi:
 
-![](images/10.png)
+![Pucang10](images/10.png)
 
 **STEP 2** - Edit konfigurasi squid menjadi:
 
     script conf
 
-![](images/11.png)
+![Pucang11](images/11.png)
 
 **STEP 3** - Restart squid
 
@@ -124,8 +124,49 @@ Ketikkan password yang diinginkan. Jika sudah maka akan muncul notifikasi:
 
 **STEP 5** - Cobalah untuk mengakses web **elearning.if.its.ac.id** (usahakan menggunakan mode **incognito/private**). Seharusnya muncul pop-up untuk login.
 
-![](images/12.png)
+![Pucang12](images/12.png)
 
 **STEP 6** - Isikan username dan password.
 
 **STEP 7** - E-learning berhasil dibuka.
+
+### 2.4 Pembatasan Waktu Akses
+
+Kita akan mencoba membatasi akses proxy pada hari dan jam tertentu. Asumsikan proxy dapat digunakan hanya pada hari **Senin** sampai **Jumat** pada jam **08.00-16.00**.
+
+**STEP 1** - Buat file baru bernama **acl.conf** di folder **squid3**
+
+    nano /etc/squid3/acl.conf
+
+![Pucang13](images/13.png)
+
+**STEP 2** - Tambahkan baris berikut
+
+    acl KERJA time MTWHF 08:00-16:00
+
+![Pucang14](images/14.png)
+
+**STEP 3** - Simpan file acl.conf
+
+**STEP 4** - Buka file **squid.conf**
+
+    nano /etc/squid3/squid.conf
+
+**STEP 5** - Ubah konfigurasinya menjadi:
+
+    include /etc/squid3/acl.conf
+    
+    http_port 8080
+    http_access allow KERJA
+    http_access deny all
+    visible_hostname pucang
+
+![Pucang15](images/15.png)
+
+**STEP 6** - Simpan file tersebut. Kemudian restart squid
+
+**STEP 7** - Cobalah untuk mengakses web **its.ac.id** (usahakan menggunakan mode **incognito/private**). Seharusnya muncul halaman error jika mengakses diluar waktu yang telah ditentukan.
+
+![Pucang16](images/16.png)
+
+Keterangan:
