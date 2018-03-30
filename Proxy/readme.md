@@ -4,6 +4,7 @@
 2. Jalankan **iptables ...** di **ROUTER**.
 3. Export proxy http, https, dan ftp di **seluruh UML**.
 4. Jalankan **apt-get update** di **seluruh UML**.
+5. Install **apache2** di **PUCANG**
 
 # Proxy Server
 ## 1. Pengertian, Fungsi, dan Manfaat
@@ -100,3 +101,31 @@ Konfigurasi di atas berarti:
 Keterangan:
 - **http_access allow all** perlu ditambahkan karena pengaturan default squid adalah **deny**
 
+### 2.3 Membuat User Login
+**STEP 1** - Buat user dan password baru ke dalam squid. Ketikkan:
+
+    htpasswd -c /etc/squid3/passwd asisten
+    
+![](images/9.png)
+
+Ketikkan password yang diinginkan. Jika sudah maka akan muncul notifikasi:
+
+![](images/10.png)
+
+**STEP 2** - Edit konfigurasi squid menjadi:
+
+    script conf
+
+![](images/11.png)
+
+**STEP 3** - Restart squid
+
+**STEP 4** - Ubah pengaturan proxy browser. Gunakan **IP PUCANG** sebagai host, dan isikan port **8080**.
+
+**STEP 5** - Cobalah untuk mengakses web **elearning.if.its.ac.id** (usahakan menggunakan mode **incognito/private**). Seharusnya muncul pop-up untuk login.
+
+![](images/12.png)
+
+**STEP 6** - Isikan username dan password.
+
+**STEP 7** - E-learning berhasil dibuka.
