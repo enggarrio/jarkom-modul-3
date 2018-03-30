@@ -114,7 +114,16 @@ Ketikkan password yang diinginkan. Jika sudah maka akan muncul notifikasi:
 
 **STEP 2** - Edit konfigurasi squid menjadi:
 
-    script conf
+    http_port 8080
+    visible_hostname pucang
+    
+    auth_param basic program /usr/lib/squid3/ncsa_auth /etc/squid3/passwd
+    auth_param basic children 5
+    auth_param basic realm Proxy
+    auth_param basic credentialsttl 2 hours
+    auth_param basic casesensitive on
+    acl USERS proxy_auth REQUIRED
+    http_access allow USERS
 
 ![Pucang11](images/11.png)
 
