@@ -179,3 +179,31 @@ Kita akan mencoba membatasi akses proxy pada hari dan jam tertentu. Asumsikan pr
 ![Pucang16](images/16.png)
 
 Keterangan:
+
+### 2.5 Pembatasan Akses ke Website Tertentu
+
+Kita akan mencoba membatasi akses ke beberapa website. Untuk contoh disini, kita akan memblokir website **E-Learning IF**
+
+**STEP 1** - Buat file bernama **bad-sites.acl** di folder **squid3** dengan mengetikkan:
+
+    nano /etc/squid3/bad-sites.acl
+    
+![Pucang17](images/17.png)
+
+**STEP 2** - Tambahkan alamat url yang akan diblock seperti baris berikut:
+
+    elearning.if.its.ac.id
+
+![Pucang18](images/18.png)
+
+**STEP 3** - Ubah file konfigurasi squid menjadi seperti berikut ini.
+
+    acl BLACKLISTS dstdomain "/etc/squid3/bad-sites.acl"
+    http_access deny BLACKLISTS
+
+**STEP 4** - Restart squid
+
+**STEP 5** - Cobalah untuk mengakses web **elearning.if.its.ac.id** (usahakan menggunakan mode **incognito/private**). Seharusnya muncul halaman error seperti di bawah ini.
+
+![Pucang19](images/19.png)
+
