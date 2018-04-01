@@ -110,7 +110,10 @@ Konfigurasi di atas berarti:
 **STEP 10** - Refresh halaman web **its.ac.id**. Seharusnya halaman yang ditampilkan kembali normal.
 
 Keterangan:
-- **http_access allow all** perlu ditambahkan karena pengaturan default squid adalah **deny**
+- **http_port 8080** berarti menggunakan port 8080 untuk mengakses proxy (Sintaks: **http_port PORT_YANG_DIINGINKAN**)
+- **visible_hostname pucang** adalah sintaks untuk memberikan nama proxy yang dapat dilihat user (Sintaks: **visible_hostname NAMA_YANG_DIINGINKAN**)
+- **http_access allow all** artinya memperbolehkan semuanya untuk mengakses proxy via http, perlu ditambahkan karena pengaturan default squid adalah **deny** (Sintaks: **http_access allow TARGET**)
+- Untuk menolak koneksi, maka **allow** diganti dengan **deny**
 
 ### 2.3 Membuat User Login
 **STEP 1** - Buat user dan password baru ke dalam squid. Ketikkan:
@@ -149,6 +152,16 @@ Ketikkan password yang diinginkan. Jika sudah maka akan muncul notifikasi:
 **STEP 6** - Isikan username dan password.
 
 **STEP 7** - E-learning berhasil dibuka.
+
+Keterangan:
+- **auth_param** digunakan untuk mengatur autentikasi (Sintaks: **auth_param SCHEME PARAMETER SETTING**. Lebih lengkapnya di http://www.squid-cache.org/Doc/config/auth_param/).
+- `program` : perintah untuk mendefiniskan autentikator eksternal.
+- `children` : mendefinisikan jumlah maksimal autentikator muncul.
+- `realm` : teks yang akan muncul pada pop-up autentikasi.
+- `credentialsttl` : mengatur masa aktif suatu autentikasi berlaku.
+- `casesensitive` : untuk mengatur apakah **username**bersifat case sensitive atau tidak.
+- **acl** digunakan untuk mendefinisikan pengaturan akses tertentu. (Sintaks umum: **acl ACL_NAME ACL_TYPE ARGUMENT** . Lebih lengkapnya di http://www.squid-cache.org/Doc/config/acl/)
+- Untuk melihat daftar apa saja yang bisa diatur dengan acl bisa diakses di: https://wiki.squid-cache.org/SquidFaq/SquidAcl)
 
 ### 2.4 Pembatasan Waktu Akses
 
@@ -190,6 +203,8 @@ Kita akan mencoba membatasi akses proxy pada hari dan jam tertentu. Asumsikan pr
 ![Pucang16](images/16.png)
 
 Keterangan:
+- **MTWHF** adalah kumpulan nama hari-hari dimana user diperbolehkan menggunakan proxy. (S: Sunday, M: Monday, T: Tuesday, W: Wednesday, H: Thursday, F: Friday, A: Saturday)
+- Penulisan jam: **h1:m1-h2:m2**. Dengan syarat **h1<h2** dan **m1<m2**
 
 ### 2.5 Pembatasan Akses ke Website Tertentu
 
@@ -218,6 +233,9 @@ Kita akan mencoba membatasi akses ke beberapa website. Untuk contoh disini, kita
 **STEP 5** - Cobalah untuk mengakses web **elearning.if.its.ac.id** (usahakan menggunakan mode **incognito/private**). Seharusnya muncul halaman error seperti di bawah ini.
 
 ![Pucang19](images/19-new.png)
+
+Keterangan:
+- **dstdomain** artinya destination domain/domain tujuan. Bisa diikuti dengan nama doma
 
 ### 2.6 Pembatasan Bandwidth
 
