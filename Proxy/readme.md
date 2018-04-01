@@ -232,17 +232,17 @@ Kita akan mencoba untuk membatasi bandwidth yang akan diberikan kepada user prox
 **STEP 2** - Ketikkan baris berikut
 
     delay_pools 1
-    delay_class 1 2
+    delay_class 1 1
     delay_access 1 allow all
-    delay_parameters 1 -1/-1 16000/64000
-    http_access allow all
+    delay_parameters 1 16000/64000
 
 ![Pucang21](images/21.png)
 
 **STEP 3** - Ubah konfigurasi squid3 menjadi:
 
-    http_port 8080
     include /etc/squid3/acl-bandwidth.conf
+    http_port 8080
+    http_access allow all
 
 ![Pucang22](images/22.png)
 
