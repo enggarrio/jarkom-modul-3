@@ -29,6 +29,17 @@ Proxy server memiliki manfaat-manfaat berikut ini:
 - Mengakses situs yang telah diblokir
 - Mengatur bandwith
 
+### 1.4 Software Proxy Server
+Beberapa contoh software proxy server yang sering digunakan adalah sebagai berikut:
+
+1. CCProxy
+
+2. WinGate
+
+3. Squid
+
+4. Nginx
+
 ## 2. Implementasi
 Untuk praktikum jarkom kali ini, software proxy server yang digunakan adalah **SQUID**. UML yang digunakan sebagai proxy server adalah **PUCANG**.
 
@@ -207,4 +218,35 @@ Kita akan mencoba membatasi akses ke beberapa website. Untuk contoh disini, kita
 
 ![Pucang19](images/19.png)
 
-## Soal Latihan
+### 2.6 Pembatasan Bandwidth
+
+Kita akan mencoba untuk membatasi bandwidth yang akan diberikan kepada user proxy. Untuk contoh disini kita akan membatasi penggunaannya maksimal 512 kbps.
+
+**STEP 1** - Buat file bernama acl-bandwidth.conf di folder squid3
+
+    nano /etc/squid3/acl-bandwidth.conf
+    
+![Pucang20](images/20.png)
+
+**STEP 2** - Ketikkan baris berikut
+
+    acl host_ajk src
+    10.151.36.0/24
+    delay_pools 1
+    delay_class 1 2
+    delay_access 1 allow host_ajk
+    delay_access 1 deny all
+    delay_parameters 1 -1/-1 16000/64000
+
+![Pucang21](images/21.png)
+
+**STEP 3** - Ubah konfigurasi squid3 menjadi:
+
+    http_port 8080
+    include /etc/squid3/acl-bandwidth.conf
+
+![Pucang22](images/22.png)
+
+**STEP 4** - Restart Squid
+
+## 3. Soal Latihan
