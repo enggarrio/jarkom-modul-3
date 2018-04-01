@@ -211,6 +211,7 @@ Kita akan mencoba membatasi akses ke beberapa website. Untuk contoh disini, kita
 
     acl BLACKLISTS dstdomain "/etc/squid3/bad-sites.acl"
     http_access deny BLACKLISTS
+    http_access allow all
 
 **STEP 4** - Restart squid
 
@@ -230,13 +231,11 @@ Kita akan mencoba untuk membatasi bandwidth yang akan diberikan kepada user prox
 
 **STEP 2** - Ketikkan baris berikut
 
-    acl host_ajk src
-    10.151.36.0/24
     delay_pools 1
     delay_class 1 2
-    delay_access 1 allow host_ajk
-    delay_access 1 deny all
+    delay_access 1 allow all
     delay_parameters 1 -1/-1 16000/64000
+    http_access allow all
 
 ![Pucang21](images/21.png)
 
@@ -248,5 +247,9 @@ Kita akan mencoba untuk membatasi bandwidth yang akan diberikan kepada user prox
 ![Pucang22](images/22.png)
 
 **STEP 4** - Restart Squid
+
+**STEP 5** - Cobalah untuk mendownload file atau lakukan speed test. Berikut perbedaan sebelum dan sesudah adanya pembatasan bandwidth saat melakukan speed test
+
+![Pucang23](images/23.png) ![Pucang24](images/24.png)
 
 ## 3. Soal Latihan
