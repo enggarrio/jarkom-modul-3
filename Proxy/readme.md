@@ -217,7 +217,7 @@ Kita akan mencoba membatasi akses ke beberapa website. Untuk contoh disini, kita
 
 **STEP 5** - Cobalah untuk mengakses web **elearning.if.its.ac.id** (usahakan menggunakan mode **incognito/private**). Seharusnya muncul halaman error seperti di bawah ini.
 
-![Pucang19](images/19.png)
+![Pucang19](images/19-new.png)
 
 ### 2.6 Pembatasan Bandwidth
 
