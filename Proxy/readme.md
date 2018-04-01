@@ -104,7 +104,7 @@ Keterangan:
 ### 2.3 Membuat User Login
 **STEP 1** - Buat user dan password baru ke dalam squid. Ketikkan:
 
-    htpasswd -c /etc/squid3/passwd asisten
+    htpasswd -c /etc/squid3/passwd jarkom204
     
 ![Pucang9](images/9.png)
 
@@ -207,3 +207,4 @@ Kita akan mencoba membatasi akses ke beberapa website. Untuk contoh disini, kita
 
 ![Pucang19](images/19.png)
 
+## Soal Latihan
